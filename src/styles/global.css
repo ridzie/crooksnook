@@ -12,20 +12,6 @@
 		rgba(var(--gray), 33%);
 }
 @font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
   font-family: "Space Mono";
   src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
   font-weight: 400;
@@ -71,6 +57,14 @@ main {
 	margin: auto;
 	padding: 3em 1em;
 }
+div.one {
+	border-style: solid;
+	border-width: 5px;
+	border-radius: 30px;
+	padding: 25px 50px 25px;
+	box-shadow: 8px 8px 0 #000;
+}
+			
 h1,
 h2,
 h3,
@@ -80,6 +74,7 @@ h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
+	text-align: center;
 }
 h1 {
 	font-size: 3.052em;
@@ -156,6 +151,25 @@ hr {
 	main {
 		padding: 1em;
 	}
+}
+.line {
+  --line-weight: 2px;     /* thickness */
+  --line-length: 100%;    /* length */
+  --line-color: #000;     /* color */
+  --line-direction: horizontal; /* horizontal | vertical */
+
+  display: block;
+  background-color: var(--line-color);
+}
+
+.line[style*="--line-direction: horizontal"] {
+  height: var(--line-weight);
+  width: var(--line-length);
+}
+
+.line[style*="--line-direction: vertical"] {
+  width: var(--line-weight);
+  height: var(--line-length);
 }
 
 .sr-only {

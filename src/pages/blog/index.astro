@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import BlogPreview from '../../components/BlogPreview.astro';
 import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
@@ -18,6 +17,9 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			a, a * {
+				text-decoration: none !important;
+			}
 			main {
 				width: calc(100% - 10em);
 				margin: 0 auto;    /* centers it */
@@ -56,10 +58,24 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<h1 class="page-title">Musings</h1>
-			<section>
-				{posts.map((post) => (
-					<BlogPreview post={post} />
-				))}
+			<div class="one" style="background-color: teal;">
+				<section>
+					{posts.map((post) => (
+						<div class="one" style="background-color:yellow;">
+							<a href={`/blog/${post.id}/`}>
+								{post.data.heroImage && (
+										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+								)}
+								<div class="line" style="--line-weight: 5px; --line-length: 100%; --line-color: black; --line-direction: horizontal; margin: 1rem 0;"></div>
+								<h4 class="title">{post.data.title}</h4>
+								<p class="description">{post.data.description}</p>
+								<p class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</p>
+							</a>
+						</div>
+					))}
+				</div>
 			</section>
 		</main>
 		<Footer />

@@ -11,7 +11,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
-		<Header />
+		<Header /><!--
 		<style>
 			div.one {
 				border-style: solid;
@@ -19,17 +19,18 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				border-radius: 30px;
 				padding: 25px 50px 25px;
 			}
-		</style>
+			h1 {
+				text-align: center;
+			}
+		</style> -->
 		<main>
 			<h1>Welcome to the Crook's Nook</h1>
-			<div class="one">
-				<p>
-					Welcome to the Crook's Nook, a personal website and blog for Ridzie, a software engineer who enjoys art, science, and satire.
-				</p>
+			<div class="one" style="background-color: skyblue;">
 				<p>
 					This is a personal website and blog for Ridzie, a software engineer who enjoys art,
 					science, and satire. She is not aware of what she is doing, but she hopes she eventually will.
 				</p>
+				<div class="line" style="--line-weight: 5px; --line-length: 100%; --line-color: black; --line-direction: horizontal;"></div>
 				<p>
 					Find her latest posts on the <a href="/blog">blog</a> page.
 				</p>

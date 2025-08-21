@@ -1,8 +1,6 @@
 ---
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/Page1.astro';
-import Card from "../components/Card.astro";
-import CtaCard from "../components/CtaCard.astro";
 ---
 
 <Layout
@@ -11,6 +9,9 @@ import CtaCard from "../components/CtaCard.astro";
 	pubDate={new Date('August 08 2021')}
 	heroImage={AboutHeroImage}
 >
+<div class="one" style="background-color: yellow;">
+  <img src="/images/default.jpg" alt="me" />
+</div>
 	<p>
 		i am Ridzie. I am *redacted* years old and live in *redacted*. I enjoy a little art, a little science, a little bullshit, participating in a lot of very poorly acted out over the top dramas, and satire. I’m very poor at comebacks. I think Animal Farm is a fun read that makes me smile at absurdity, and 1987 is still my favourite book. I have two cats called gremlin children, and watching the world burn with me in it is a regular pastime for me.
 	</p>
@@ -18,41 +19,4 @@ import CtaCard from "../components/CtaCard.astro";
 		I’m a software engineer, and I work on a lot of different things. I’m currently working on a project that involves building a web application using Astro, which is a static site generator. I’m also working on a few other projects that involve building web applications using React and Vue.
 	</p>
 
-	<Card 
-    image="src/assets/blog-placeholder-3.jpg" 
-    title="Jane Doe" 
-    subtitle="Designer" 
-    description="Loves brutalist CSS and typography." 
-    buttonText="Portfolio" 
-    buttonLink="/portfolio" 
-  />
-
-  <Card 
-    image="src/assets/blog-placeholder-3.jpg" 
-    title="John Smith" 
-    subtitle="Developer" 
-    description="Writes clean code and bad jokes." 
-    buttonText="GitHub" 
-    buttonLink="https://github.com" 
-  />
-  <CtaCard
-  image="https://images.unsplash.com/photo-1600078686889-8c42747c25fe?&w=400"
-  alt="Bluetit"
-  title="Aspect ratio is great"
-  content="This image has an aspect ratio of 3/2."
-  link="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio"
-  linkText="Read all about it"
-/>
-
-<CtaCard
-  image="https://images.unsplash.com/photo-1569762825621-2dab96140a1d?&w=400"
-  alt="Small blue-grey yellow-breasted bird"
-  title="Aspect ratio is great"
-  content={[
-    "This image has an aspect ratio of 3/2. But when the text is longer, the image grows too, overriding its aspect ratio. Cool!",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  ]}
-  link="https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio"
-  linkText="Read all about it"
-/>
 </Layout>
