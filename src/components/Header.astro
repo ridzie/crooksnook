@@ -6,11 +6,16 @@ import HeaderLink from './HeaderLink.astro';
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
+		<div>
+			<img src="/favicon.svg" alt="Site Icon" width="25" height="25" style="vertical-align: middle;" />
 		</div>
+		<div class="internal-links">
+			<HeaderLink href="/">Moonlanding</HeaderLink>
+			<HeaderLink href="/blog">Musings</HeaderLink>
+			<HeaderLink href="/me">Me</HeaderLink>
+		</div>
+
+		<!-- 
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
@@ -40,6 +45,7 @@ import HeaderLink from './HeaderLink.astro';
 				>
 			</a>
 		</div>
+		-->
 	</nav>
 </header>
 <style>

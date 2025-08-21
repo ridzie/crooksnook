@@ -1,0 +1,81 @@
+---
+const {
+  image = "https://picsum.photos/600/400",
+  alt = "CTA image",
+  title = "Default Title",
+  content = [],
+  link = "#",
+  linkText = "Read more"
+} = Astro.props;
+---
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.cta {
+  --shadowColor: 187 60% 40%;
+  display: flex;
+  flex-wrap: wrap;
+  background: hsl(187 70% 85%);
+  max-width: 50rem;
+  width: 100%;
+  box-shadow: 0.65rem 0.65rem 0 hsl(var(--shadowColor) / 1);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 0.5rem solid;
+  margin: 2rem auto;
+}
+
+.cta img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  flex: 1 1 300px;
+  outline: 0.5rem solid;
+  display: block;
+  width: 100%;
+}
+
+.cta__text-column {
+  padding: min(2rem, 5vw) min(2rem, 5vw) min(2.5rem, 5vw);
+  flex: 1 0 50%;
+}
+
+.cta__text-column > * + * {
+  margin: min(1.5rem, 2.5vw) 0 0 0;
+}
+
+.cta__text-column h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+@media (min-width: 50em) {
+  .cta__text-column h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.cta a {
+  display: inline-block;
+  color: black;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  background: hsl(187 75% 64%);
+  border-radius: 0.6rem;
+  font-weight: 700;
+  border: 0.35rem solid;
+}
+</style>
+
+<article class="cta">
+  <img src={image} alt={alt} />
+  <div class="cta__text-column">
+    <h2>{title}</h2>
+    {Array.isArray(content)
+      ? content.map((c) => <p>{c}</p>)
+      : <p>{content}</p>}
+    <a href={link}>{linkText}</a>
+  </div>
+</article>

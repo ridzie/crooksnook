@@ -1,0 +1,126 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #fefefe;
+        font-family: 'Space Mono', monospace;
+      }
+
+      .card-container {
+        max-width: calc(100% - 20em);
+        background: #ffffff;
+        border: 4px solid #000000;
+        box-shadow: 8px 8px 0 #000;
+        margin: 3rem auto;
+      }
+
+      .upper-container {
+        height: 140px;
+        background: #ffe600;
+        border-bottom: 4px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .image-container {
+        width: 100px;
+        height: 100px;
+        background: #ffffff;
+        border: 4px solid #000;
+        transform: translateY(50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .image-container img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border: 2px solid #000;
+      }
+
+      .lower-container {
+        padding: 60px 20px 30px;
+        text-align: center;
+      }
+
+      .lower-container h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+      }
+
+      .lower-container h4 {
+        margin: 5px 0 15px;
+        font-size: 14px;
+        color: #333;
+        font-weight: normal;
+      }
+
+      .lower-container p {
+        font-size: 14px;
+        color: #000;
+        border: 2px dashed #000;
+        padding: 10px;
+        background: #f0f0f0;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ff006e;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border: 3px solid #000;
+        box-shadow: 4px 4px 0 #000;
+        transition: all 0.2s ease;
+      }
+
+      .btn:hover {
+        background: #fff;
+        color: #ff006e;
+        border: 3px solid #ff006e;
+        box-shadow: none;
+      }
+    </style>
+  </head>
+
+  <body>
+	<Header />
+    <div class="card-container">
+      <div class="upper-container">
+        <div class="image-container">
+          <img src="/images/default.jpg" alt={title} />
+        </div>
+      </div>
+      <div class="lower-container">
+        <h3>{title}</h3>
+        <p>{description}</p>
+
+        <!-- Slot for page-specific content -->
+        <slot />
+
+        <a href="#" class="btn">Click Me</a>
+      </div>
+    </div>
+	<Footer />
+  </body>
+</html>
