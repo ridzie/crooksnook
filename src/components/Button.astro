@@ -1,0 +1,9 @@
+---
+const { href, title, textColor = "#2337ff", bgColor = "#e5e9f0" } = Astro.props;
+---
+
+<div class="one" style={`background-color:${bgColor};`}>
+  <a href={href}>
+    <h2 style={`color:${textColor};`}>{title}</h2>
+  </a>
+</div>

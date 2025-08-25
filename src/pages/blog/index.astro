@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
@@ -21,22 +22,18 @@ const posts = (await getCollection('blog')).sort(
         <Header />
         <main >
             <h1 >Musings</h1>
-            <div class="one bg-blue">
+            <div class="one">
                 <section class="grid-3col">
                     {posts.map((post) => (
-                        <div class="one bg-purple">
-                            <a href={`/blog/${post.id}/`}>
-                                {post.data.heroImage && (
-                                    <Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
-                                )}
-                                <div class="line" style="--line-weight: 5px; --line-length: 100%; --line-color: black; --line-direction: horizontal; margin: 1rem 0;"></div>
-                                <h4>{post.data.title}</h4>
-                                <p>{post.data.description}</p>
-                                <p style="text-align: right;">
-                                    <FormattedDate date={post.data.pubDate} />
-                                </p>
-                            </a>
-                        </div>
+                       <Card
+                            href={`/blog/${post.id}/`}
+                            title={post.data.title}
+                            description={post.data.description}
+                            date={post.data.pubDate}
+                            heroImage={post.data.heroImage}
+                            bgColor="pink"
+                            textColor="#ff006e"
+                        />
                     ))}
                 </section>
             </div>

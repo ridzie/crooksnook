@@ -2,16 +2,10 @@
    Root & Fonts
    ========================= */
 :root {
-    --accent: #2337ff;
-    --accent-dark: #000d8a;
-    --black: 15, 18, 25;
-    --gray: 96, 115, 159;
-    --gray-light: 229, 233, 240;
-    --gray-dark: 34, 41, 57;
-    --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-    --box-shadow:
-        0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-        rgba(var(--gray), 33%);
+  --blue: #06CDFA;
+  --purple: #D998DF;
+  --yellow: yellow;
+  --pink: #ff006e;
 }
 @font-face {
   font-family: "Space Mono";
@@ -69,7 +63,10 @@ main {
     border-radius: 30px;
     padding: 25px 50px 25px;
     box-shadow: 8px 8px 0 #000;
+	margin-top: 1rem;
+	background-color: #06CDFA;
 }
+
 
 /* =========================
    Headings & Typography
@@ -157,8 +154,6 @@ hr {
 /* =========================
    Utility Classes
    ========================= */
-.bg-blue { background-color: #06CDFA; }
-.bg-purple { background-color: #D998DF; }
 
 .grid-3col {
     display: grid;
@@ -181,6 +176,17 @@ hr {
         grid-template-columns: 1fr;
     }
 }
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (max-width: 720px) {
+    .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
 
 /* =========================
    Buttons
@@ -195,6 +201,7 @@ hr {
   border: 3px solid #000;
   box-shadow: 4px 4px 0 #000;
   transition: all 0.2s ease;
+  margin-top: 2rem;
 }
 .btn:hover {
   background: #fff;
