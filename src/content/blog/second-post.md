@@ -2,7 +2,6 @@
 title: 'Second post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 15 2022'
-heroImage: '../../assets/Psychosis-logo.png'
 tags: ["default"]
 ---
 

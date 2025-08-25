@@ -2,7 +2,6 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: 'Jul 08 2022'
-heroImage: '../../assets/Psychosis-logo.png'
 tags: ["default"]
 ---
 
