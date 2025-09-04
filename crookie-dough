@@ -1,0 +1,40 @@
+#!/opt/homebrew/bin//bash
+
+# Stop script if any command fails
+set -e
+
+timestamp=$(date +"%d%m%Y-%H%M%S")
+
+build() {
+    echo "Running Astro build..."
+    npm run build
+    echo "Zipping build..."
+    zip -r "build-$timestamp.zip" dist
+    echo "Build complete: build-$timestamp.zip"
+}
+
+deploy() {
+    echo "Deploy placeholder: would deploy build-$timestamp.zip here."
+}
+
+manpage() {
+    echo "Usage: $0 [--build] [--deploy]"
+    echo
+    echo "Options:"
+    echo "  --build    Run Astro build and zip the dist folder"
+    echo "  --deploy   Deploy to Remote"
+    echo
+    echo "If no options are given, --build runs by default."
+}
+
+if [ $# -eq 0 ]; then
+    build
+else
+    for arg in "$@"; do
+        case $arg in
+            --build) build ;;
+            --deploy) deploy ;;
+            *) manpage; exit 1 ;;
+        esac
+    done
+fi
