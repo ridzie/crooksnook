@@ -8,9 +8,15 @@ import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
+/*
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+*/
+// const res = await fetch("http://localhost:3001/posts"); 
+const res = await fetch("http://api:3001/posts");// calls your API
+const posts = await res.json();                         // gets back JSON rows
+
 ---
 
 <!doctype html>
@@ -26,11 +32,18 @@ const posts = (await getCollection('blog')).sort(
                 <section class="grid-3col">
                     {posts.map((post) => (
                        <Card
+                       /*
                             href={`/blog/${post.id}/`}
                             title={post.data.title}
                             description={post.data.description}
                             date={post.data.pubDate}
                             heroImage={post.data.heroImage}
+                        */
+                            href={`/blog/${post.slug}/`}
+                            title={post.title}
+                            description={post.description}
+                            date={post.pub_date}
+                            heroImage={post.hero_image}
                             bgColor="pink"
                             textColor="#ff006e"
                         />
