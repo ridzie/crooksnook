@@ -16,6 +16,7 @@ export default defineConfig({
 export default defineConfig({
   output: "server",                 // not "static"
   adapter: node({ mode: "standalone" }), // runs as Node app
+  server: { host: true },                  // <- forces 0.0.0.0 binding
   site: 'https://ridzie.me',
   integrations: [mdx(), sitemap()],
 });
